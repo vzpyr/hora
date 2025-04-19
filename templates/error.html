@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block title %}Error{% endblock %}
+{% block content %}
+        <h1>Error</h1>
+        <p>Something went wrong while loading this page.</p>
+        <div class="item-panel">
+            <img src="{{ url_for('static', filename='error_128dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png') }}" alt="Icon">
+            <div class="item-text">
+                <h2>Error {{ code }}</h2>
+                <p>{{ description }}</p>
+            </div>
+        </div>
+{% endblock %}

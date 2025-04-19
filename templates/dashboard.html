@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+        <h1>Hello, {{ user }}!</h1>
+        <p>This is your dashboard. Here you can access all our features.</p>
+        <div class="item-panel">
+            <img src="{{ url_for('static', filename='calendar_month_128dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png') }}" alt="Icon">
+            <div class="item-text">
+                <h2>Account created at</h2>
+                <p><span id="createdAt"></span></p>
+            </div>
+        </div>
+        <div class="item-panel">
+            <img src="{{ url_for('static', filename='mail_lock_128dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png') }}" alt="Icon">
+            <div class="item-text">
+                <h2>Recovery Email</h2>
+                <p>{% if user_has_email %} ✔ Recovery email is set! {% else %} ✘ Recovery email isn't set! {% endif %}</p>
+                <button onclick="window.location='/match'" class="button">Match</button>
+            </div>
+        </div>
+        <button onclick="openDeleteAccountModal()" class="button">Delete Account</button>
+        <div id="deleteAccountPopup" class="popup">
+            <h3>Delete Account</h3>
+            <p>Do you really want to delete your account?</p>
+            <form method="POST" action="{{ url_for('delete_account') }}">
+                <button type="submit" class="button">Delete Account</button>
+            </form>
+            <button onclick="closeModals()" class="button">Close</button>
+        </div>
+        <div id="overlay" class="overlay" onclick="closeModals()"></div>
+        <script>
+            document.getElementById('createdAt').textContent = new Date("{{ user_timestamp }}" * 1000).toLocaleString();
+            function openDeleteAccountModal() {
+                document.getElementById('overlay').classList.add('active');
+                document.getElementById('deleteAccountPopup').classList.add('active');
+            }
+            function closeModals() {
+                document.getElementById('overlay').classList.remove('active');
+                document.getElementById('deleteAccountPopup').classList.remove('active');
+            }
+        </script>
+{% endblock %}

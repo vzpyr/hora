@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Home{% endblock %}
+{% block content %}
+        <h1>Welcome to Hora!</h1>
+        <p>This is Hora's official website. To start, login or register using the button at the top.</p>
+        <div class="item-panel">
+            <img src="{{ url_for('static', filename='question_mark_128dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png') }}" alt="Icon">
+            <div class="item-text">
+                <h2>Why use Hora?</h2>
+                <p>Hora cares about privacy, security and performance.</p>
+            </div>
+        </div>
+        <div class="item-panel">
+            <img src="{{ url_for('static', filename='lock_128dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png') }}" alt="Icon">
+            <div class="item-text">
+                <h2>Is my data safe here?</h2>
+                <p>Hora utilizes encryption for almost all user data, so not even I can view it.</p>
+            </div>
+        </div>
+        <div class="item-panel">
+            <img src="{{ url_for('static', filename='security_128dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png') }}" alt="Icon">
+            <div class="item-text">
+                <h2>How can I trust Hora?</h2>
+                <p>To be honest, I don't know. If you have any questions, just contact me.</p>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block content %}
+        <div class="form-container">
+            <div class="tabs">
+                <button class="tab-button active" onclick="showTab('login')">Login</button>
+                <button class="tab-button" onclick="showTab('register')">Register</button>
+            </div>
+            <form method="POST" id="login" class="tab-content active">
+                <input class="input" type="text" name="username" placeholder="* Username" autocomplete="username" required><br>
+                <input class="input" type="password" name="password" placeholder="* Password" autocomplete="current-password" required><br>
+                {% if messages %}
+                    <div class="error">{{ messages[0] }}</div>
+                {% endif %}
+                <button type="submit" name="mode" value="login" class="button">Login</button>
+            </form>
+            <form method="POST" id="register" class="tab-content">
+                <input class="input" type="text" name="username" placeholder="* Username" autocomplete="username" required><br>
+                <input class="input" type="password" name="password" placeholder="* Password" autocomplete="new-password" required><br>
+                <input class="input" type="email" name="email" placeholder="Recovery Email" autocomplete="email"><br>
+                {% if messages %}
+                    <div class="error">{{ messages[0] }}</div>
+                {% endif %}
+                <button type="submit" name="mode" value="register" class="button">Register</button>
+            </form>
+        </div>
+        <script>
+            function showTab(id) {
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+                document.getElementById(id).classList.add('active');
+                event.target.classList.add('active');
+            }
+        </script>
+{% endblock %}

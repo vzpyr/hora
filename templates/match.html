@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}Match{% endblock %}
+{% block content %}
+    <h1>Match</h1>
+    <p>Here you can check if a recovery email belongs to a username.</p>
+    <div class="form-container">
+        <form method="post">
+            <input class="input" type="text" name="username" placeholder="* Username" required><br>
+            <input class="input" type="text" name="email" placeholder="* Email" required><br>
+            {% if result %}
+            <div class="item-panel">
+                <img src="{{ url_for('static', filename='join_left_128dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png') }}" alt="Icon">
+                <div class="item-text">
+                    <h2>Match Result</h2>
+                    <p>{{ result }}</p>
+                </div>
+            </div>
+            {% endif %}
+            <button class="button" type="submit">Check</button>
+        </form>
+    </div>
+{% endblock %}

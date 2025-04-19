@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}Help{% endblock %}
+{% block content %}
+        <h1>Help</h1>
+        <p>Need help with something? Here you can contact me if you have any problems.</p>
+        <div class="item-panel">
+            <img src="{{ url_for('static', filename='password_128dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png') }}" alt="Icon">
+            <div class="item-text">
+                <h2>Forgot your password?</h2>
+                <p>You will need your username and a way to verify that the connected recovery email actually belongs to you.</p>
+                <button onclick="window.location='mailto:hora@example.com?subject=I forgot my password.&body=Hello,%0D%0AI forgot my password on Hora.%0D%0AUsername: [Fill in here]%0D%0AEmail: [Fill in here]%0D%0ATo proof that this is my email, [Fill in here].%0D%0AThanks in advance!'" class="button">Contact me</button>
+            </div>
+        </div>
+        <div class="item-panel">
+            <img src="{{ url_for('static', filename='feature_search_128dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png') }}" alt="Icon">
+            <div class="item-text">
+                <h2>Want to request a feature?</h2>
+                <p>As this project is relatively new, I'm still focused on regularly adding new features. Please tell me what you're missing!</p>
+                <button onclick="window.location='mailto:hora@example.com?subject=I want to request a feature.&body=Hello,%0D%0AI want to request a feature on Hora.%0D%0AFeature: [Fill in here]%0D%0AThanks in advance!'" class="button">Contact me</button>
+            </div>
+        </div>
+        <div class="item-panel">
+            <img src="{{ url_for('static', filename='report_128dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png') }}" alt="Icon">
+            <div class="item-text">
+                <h2>Want to report something?</h2>
+                <p>If you found a bug or have something else to tell me, you can report it here.</p>
+                <button onclick="window.location='mailto:hora@example.com?subject=I want to report something.&body=Hello,%0D%0AI want to report something on Hora.%0D%0AProblem: [Fill in here]%0D%0AThanks in advance!'" class="button">Contact me</button>
+            </div>
+        </div>
+{% endblock %}

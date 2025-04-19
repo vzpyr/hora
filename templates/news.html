@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %}News{% endblock %}
+{% block content %}
+        <h1>News</h1>
+        <p>Here you can find the latest announcements about Hora.</p>
+        <div class="item-panel">
+            <img src="{{ url_for('static', filename='newspaper_128dp_E3E3E3_FILL0_wght400_GRAD0_opsz48.png') }}" alt="Icon">
+            <div class="item-text">
+                <h2>Development Update (10th April 2025)</h2>
+                <p>Welcome to Hora.</p>
+                <button onclick="openNews1()" class="button">Read more</button>
+            </div>
+        </div>
+        <div id="news1" class="popup">
+            <h3>Development Update (10th April 2025)</h3>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</p>
+            <button onclick="closeModals()" class="button">Close</button>
+        </div>
+        <div id="overlay" class="overlay" onclick="closeModals()"></div>
+        <script>
+            function openNews1() {
+                document.getElementById('overlay').classList.add('active');
+                document.getElementById('news1').classList.add('active');
+            }
+            function closeModals() {
+                document.getElementById('overlay').classList.remove('active');
+                document.getElementById('news1').classList.remove('active');
+            }
+        </script>
+{% endblock %}

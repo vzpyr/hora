@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hora | {% block title %}{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Hora">
+        <meta property="og:description" content="Welcome to Hora!">
+        <meta property="og:image" content="{{ url_for('static', filename='logo.png', _external=True) }}">
+        <meta property="og:url" content="http://127.0.0.1/">
+        <link rel="icon" href="{{ url_for('static', filename='logo.png') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div class="topbar">
+            <span><a href="{{ url_for('index') }}"><img src="{{ url_for('static', filename='logo.png') }}">Hora</a></span>
+            <div>
+                <a href="{{ url_for('news') }}">📰 News</a>
+                {% if logged_in %}
+                    <a href="{{ url_for('dashboard') }}">🎫 Dashboard</a>
+                    <a href="{{ url_for('logout') }}">🔒 Logout</a>
+                {% else %}
+                    <a href="{{ url_for('login') }}">🔒 Login</a>
+                {% endif %}
+            </div>
+        </div>    
+        <div class="content fade-in">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="error">{{ messages[0] }}</div>
+                {% endif %}
+            {% endwith %}
+            {% block content %}{% endblock %}
+            <footer class="footer">
+                <a style="color: #555;" href="{{ url_for('help') }}">Need help?</a>
+                <a style="color: #888;" >|</a>
+                <a style="color: #555;" href="https://z-n.cc/" target="_blank">Developed by v1per</a>
+            </footer>
+        </div>
+    </body>
+</html>
