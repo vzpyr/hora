@@ -9,7 +9,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 EMAIL_REGEX = re.compile(r"^[^@]+@[^@]+\.[^@]+$")
 
 app = Flask(__name__)
-app.secret_key = 'c5b0070a-153b-4739-a031-747198e7304b'
+app.secret_key = ''
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 
 db = SQLAlchemy(app)
